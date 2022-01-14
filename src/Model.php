@@ -1,6 +1,6 @@
 <?php
 
-namespace Models;
+namespace Melody\Models;
 
 use Database\DB;
 
