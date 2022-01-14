@@ -10,12 +10,20 @@ abstract class Model {
 
     protected $table = '';
 
-    public static function all() {
+    public static function find($id)
+    {
+        $emptyModel = new static;
+        return static::from(DB::table($emptyModel->table)->where('id', '=', $id)->first());
+    }
+
+    public static function all()
+    {
         $emptyModel = new static;
         return static::from(DB::table($emptyModel->table)->get());
     }
 
-    public static function from($modelsArray = []) {
+    public static function from($modelsArray = [])
+    {
         $models = []; 
         foreach ($modelsArray as $attributes) {
             $models[] = static::create($attributes);
@@ -24,15 +32,18 @@ abstract class Model {
         return $models;
     }
 
-    public static function create($attributes = []) {
+    public static function create($attributes = [])
+    {
         return new static($attributes);
     }
 
-    public function __construct($attributes = []) {
+    public function __construct($attributes = []) 
+    {
         $this->attributes = $attributes;
     }
 
-    public function __get($name) {
+    public function __get($name)
+    {
         if (isset($this->attributes[$name])) {
             return $this->attributes[$name];
         }
@@ -44,7 +55,8 @@ abstract class Model {
         return null;
     }
 
-    public static function __callStatic($name, $arguments) {
+    public static function __callStatic($name, $arguments)
+    {
         if (!static::$currentBuilder) {
             $emptyModel = new static;
             static::$currentBuilder = DB::model(static::class)->table($emptyModel->table);

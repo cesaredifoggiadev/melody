@@ -12,7 +12,8 @@ class DB {
     private $wheres = [];
     private $model = null;
 
-    private static function getInstance() {
+    private static function getInstance()
+    {
         if (self::$currentInstance === null) {
             self::$currentInstance = new DB;
         }
@@ -21,7 +22,8 @@ class DB {
     }
 
     //SELECT * FROM table WHERE id = ? OR WHERE id > 0 
-    protected function buildQuery() {
+    protected function buildQuery() 
+    {
         $selectStmt = implode(',', $this->selects);
         $whereValues = [];
         $whereStmts = [];
@@ -45,7 +47,8 @@ class DB {
         return $stmt;
     }
 
-    private function connect() {
+    private function connect() 
+    {
         $config = include('./config.php');
         $dbConfig = $config['db'];
 
@@ -60,7 +63,8 @@ class DB {
         return new PDO($connectionString, $username, $password, $dbConfig['options']);
     }
 
-    public function first() {
+    public function first()
+    {
         $stmt = $this->buildQuery();
 
         $result = $stmt->fetch();
@@ -77,11 +81,13 @@ class DB {
         return null;
     }
 
-    public function last() {
+    public function last()
+    {
         
     }
 
-    public function get() {
+    public function get()
+    {
         $stmt = $this->buildQuery();
 
         $results = $stmt->fetchAll();
@@ -93,7 +99,8 @@ class DB {
         return $results;
     }
 
-    public function addSelect($column) {
+    public function addSelect($column)
+    {
         if (is_array($column)) {
             $this->selects = $column;
         } else {
@@ -107,33 +114,39 @@ class DB {
         return $this;
     }
 
-    public function addModel($modelClass) {
+    public function addModel($modelClass)
+    {
         $this->model = $modelClass;
 
         return $this;
     }
 
-    public function addTable($table) {
+    public function addTable($table)
+    {
         $this->table = $table;
 
         return $this;
     }
     
-    public function addWhere($column, $operator = '=', $value = '', $boolean = 'AND') {
+    public function addWhere($column, $operator = '=', $value = '', $boolean = 'AND') 
+    {
         $this->wheres[] = ['column' => $column, 'operator' => $operator, 'value' => $value, 'boolean' => $boolean];
 
         return $this;
     }
 
-    public static function __callStatic($name, $arguments) {
+    public static function __callStatic($name, $arguments)
+    {
         return self::resolveName($name, $arguments);
     }
 
-    public function __call($name, $arguments) {
+    public function __call($name, $arguments)
+    {
         return self::resolveName($name, $arguments);
     }
 
-    private static function resolveName($name, $arguments) {
+    private static function resolveName($name, $arguments)
+    {
         $completeName = '';
         $additionalArgs = [];
 
