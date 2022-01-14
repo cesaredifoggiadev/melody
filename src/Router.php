@@ -1,6 +1,6 @@
 <?php
 
-namespace Router;
+namespace Route;
 
 use Exceptions\PageNotFoundException;
 
