@@ -1,6 +1,6 @@
 <?php
 
-namespace Melody\Views;
+namespace Views;
 
 abstract class View {
 

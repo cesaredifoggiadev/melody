@@ -1,6 +1,6 @@
 <?php
 
-namespace Melody\Views;
+namespace Views;
 
 class Error extends View {
 

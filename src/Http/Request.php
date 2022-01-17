@@ -1,6 +1,6 @@
 <?php 
 
-namespace Melody\Request;
+namespace Http;
 
 class Request {
 

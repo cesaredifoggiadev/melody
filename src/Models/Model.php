@@ -1,8 +1,8 @@
 <?php
 
-namespace Melody\Models;
+namespace Models;
 
-use Melody\Database\DB;
+use Database\DB;
 
 abstract class Model {
     private static $currentBuilder;
