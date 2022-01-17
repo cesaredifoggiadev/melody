@@ -1,6 +1,6 @@
 <?php
 
-namespace Helpers;
+namespace Melody\Helpers;
 
 class Helper {
     
