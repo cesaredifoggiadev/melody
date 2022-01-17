@@ -1,16 +1,19 @@
 <?php
+namespace {
+    // global namespace.
 
-function config($key, $value)
-{
-
-}
-
-function view($name, $value)
-{
-    require '../views/welcome.php';
-}
-
-function env($key, $value)
-{
-
+    function view()
+    {
+        require '../views/welcome.php';
+    }
+    
+    function config($key, $value)
+    {
+    
+    }
+    
+    function env($key, $value)
+    {
+    
+    }
 }
