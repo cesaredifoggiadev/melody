@@ -2,7 +2,7 @@
 
 namespace Melody\Models;
 
-use Database\DB;
+use Melody\Database\DB;
 
 abstract class Model {
     private static $currentBuilder;
