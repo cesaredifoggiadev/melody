@@ -1,6 +1,6 @@
 <?php
 
-namespace Melody\Database;
+namespace Database;
 
 use PDO;
 
