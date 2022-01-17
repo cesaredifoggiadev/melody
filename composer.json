@@ -4,11 +4,7 @@
     "autoload": {
         "psr-4": {
             "Melody\\": "src/"
-        },
-
-        "files": [
-            "./helpers.php"
-        ]
+        }
     },
     "extra": {
         "branch-alias": {
