@@ -1,8 +1,8 @@
 <?php
 
-namespace Http;
+namespace Melody\Http;
 
-use Exceptions\PageNotFoundException;
+use Melody\Exceptions\PageNotFoundException;
 
 class Route {
     private static $routes = ['GET' => [], 'POST' => []];

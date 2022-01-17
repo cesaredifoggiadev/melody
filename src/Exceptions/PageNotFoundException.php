@@ -1,6 +1,6 @@
 <?php
 
-namespace Exceptions;
+namespace Melody\Exceptions;
 
 use Exception;
 
